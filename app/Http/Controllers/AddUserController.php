@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AddUserModel;
+use App\Http\Requests\UserForm;
 
 class AddUserController extends Controller
 {
@@ -37,7 +38,7 @@ class AddUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserForm $request)
     {
         $data=new AddUserModel();
 
@@ -51,7 +52,7 @@ class AddUserController extends Controller
         if ($check) {
                return redirect()->back()->with('success','Data saved successfully');
            }else{
-             return redirect()->back()->with('errors','Data not saved');
+             return redirect()->back()->with('errMsg','Data not saved');
            }   
     }
 
@@ -107,7 +108,7 @@ class AddUserController extends Controller
         if ($check) {
                return redirect('/adduser')->with('success','Data updated successfully');
            }else{
-             return redirect('/adduser')->with('errors','Data data not updated');
+             return redirect('/adduser')->with('errMsg','Data data not updated');
            }   
     }
 
@@ -128,7 +129,7 @@ class AddUserController extends Controller
         if ($check) {
                return redirect('/adduser')->with('success','Data deleted successfully');
            }else{
-             return redirect('/adduser')->with('errors','Data not deleted');
+             return redirect('/adduser')->with('errMsg','Data not deleted');
            }   
     }
 }
