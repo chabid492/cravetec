@@ -21,10 +21,10 @@
 	    </div>
 	@endif
 
-	@if (session()->has('errors'))
+	@if (session()->has('errMsg'))
 	    <div class="alert alert-danger">
 	        <ul>
-	            <li>{{session('errors')}}</li>
+	            <li>{{session('errMsg')}}</li>
 	        </ul>
 	    </div>
 	@endif
@@ -40,7 +40,14 @@
    <div class="form-group row">
     <label  class="col-2 col-form-label">Name</label>
     <div class="col-10">
-     <input class="form-control" type="text" value="{{ $result->name }}" name="name" placeholder="Enter Name" id="name"/>
+     <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="Enter Name" id="name"/ value="{{ $result['name'] }}" autofocus>
+
+     @error('name')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+      @enderror
+
     </div>
    </div>
 
@@ -49,7 +56,14 @@
    <div class="form-group row">
     <label for="example-email-input" class="col-2 col-form-label">Email</label>
     <div class="col-10">
-     <input class="form-control" type="email" value="{{ $result->email }}" placeholder="abc@example.com" id="email" name="email" />
+     <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="abc@example.com" id="email" name="email" value="{{ $result['email'] }}" />
+
+     @error('email')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+      @enderror
+
     </div>
    </div>
 
@@ -57,21 +71,42 @@
    <div class="form-group row">
     <label for="example-tel-input" class="col-2 col-form-label">Mobile</label>
     <div class="col-10">
-     <input class="form-control" type="tel" value="{{ $result->mobile }}" placeholder="034121****3" id="Mobile" name="mobile" />
+     <input class="form-control @error('mobile') is-invalid @enderror" type="tel" placeholder="034121****3" id="Mobile" name="mobile" value="{{ $result['mobile'] }}"/>
+
+     @error('mobile')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+      @enderror
+
     </div>
    </div>
 
    <div class="form-group row">
     <label for="example-tel-input" class="col-2 col-form-label">Age</label>
     <div class="col-10">
-     <input class="form-control" type="number" value="{{ $result->age }}" min="0" placeholder="18" id="age" name="age" />
+     <input class="form-control @error('age') is-invalid @enderror" type="number" min="0" placeholder="18" id="age" name="age" value="{{ $result['age'] }}"/>
+
+     @error('age')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+      @enderror
+
     </div>
    </div>
 
    <div class="form-group row">
     <label for="example-tel-input" class="col-2 col-form-label">Address</label>
     <div class="col-10">
-     <input class="form-control" type="text" value="{{ $result->address }}"  placeholder="street 2, block y Sargodha" id="address" name="address" />
+     <input class="form-control @error('address') is-invalid @enderror" type="text"  placeholder="street 2, block y Sargodha" id="address" name="address" value="{{ $result['address'] }}" />
+
+     @error('address')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message }}</strong>
+        </span>
+      @enderror
+
     </div>
    </div>
 
@@ -85,6 +120,7 @@
   
 
   </div>
+
   <div class="card-footer">
    <div class="row">
     <div class="col-2">

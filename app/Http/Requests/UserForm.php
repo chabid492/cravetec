@@ -26,7 +26,7 @@ class UserForm extends FormRequest
         return [
             'name' => 'required|max:50',
             'email' => 'required',
-            'mobile' => 'required|max:11',
+            'mobile' => 'required|max:11|min:11',
             'age' => 'required|min:0',
             'address' => 'required|max:255',
             
@@ -47,6 +47,7 @@ class UserForm extends FormRequest
 
         return [
             'name.required' => 'Please fill name field',
+
             'email.required' => 'Email is required field',
             'mobile.required' => 'Mobile field is required',
             'age.required' => 'Please enter your age',

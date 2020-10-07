@@ -70,7 +70,7 @@
    <div class="form-group row">
     <label for="example-tel-input" class="col-2 col-form-label">Mobile</label>
     <div class="col-10">
-     <input class="form-control @error('mobile') is-invalid @enderror" type="tel" placeholder="034121****3" id="Mobile" name="mobile" />
+     <input class="form-control @error('mobile') is-invalid @enderror" type="tel" placeholder="034121****3" id="Mobile" name="mobile" value="{{ old('mobile') }}"/>
 
      @error('mobile')
         <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
    <div class="form-group row">
     <label for="example-tel-input" class="col-2 col-form-label">Age</label>
     <div class="col-10">
-     <input class="form-control @error('age') is-invalid @enderror" type="number" min="0" placeholder="18" id="age" name="age" />
+     <input class="form-control @error('age') is-invalid @enderror" type="number" min="0" placeholder="18" id="age" name="age" value="{{ old('age') }}"/>
 
      @error('age')
         <span class="invalid-feedback" role="alert">
@@ -98,7 +98,7 @@
    <div class="form-group row">
     <label for="example-tel-input" class="col-2 col-form-label">Address</label>
     <div class="col-10">
-     <input class="form-control @error('address') is-invalid @enderror" type="text"  placeholder="street 2, block y Sargodha" id="address" name="address" />
+     <input class="form-control @error('address') is-invalid @enderror" type="text"  placeholder="street 2, block y Sargodha" id="address" name="address" value="{{ old('address') }}" />
 
      @error('address')
         <span class="invalid-feedback" role="alert">
